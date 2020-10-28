@@ -12,7 +12,7 @@ import { defineComponent , ref , onMounted, onUnmounted} from 'vue';
 export default defineComponent({
     name:'Dropdown',
     props: {
-        title: {
+        title: { 
             type: String,
             required: true
         }
