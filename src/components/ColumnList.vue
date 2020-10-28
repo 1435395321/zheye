@@ -2,17 +2,16 @@
 <template>
     <div class="row">
         <div v-for="column in columnList" :key="column.id" class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
                     <img
                         :src="column.avatar"
-                        class="border border-light my-4"
+                        class="rounded-circle border border-light w-25 h-25 my-3"
                         alt="column.title"
-                        style="width:60%;height:100px"
                     />
                     <h5 class="card-title">{{ column.title }}</h5>
                     <p class="card-text text-left">{{ column.description }}</p>
-                    <a href="#" class="btn btn-outline-primary">进入专栏</a>
+                    <a href="#" class="btn m-auto btn-outline-primary">进入专栏</a>
                 </div>
             </div>
         </div>
@@ -21,7 +20,8 @@
 
 <script lang="ts">
 // PropType 接受一个泛型
-import { computed, defineComponent, PropType } from "vue";
+import { defineComponent} from "vue";
+import column from "@/data/column";
 export interface ColumnProps {
     id: number;
     title: string;
@@ -30,21 +30,12 @@ export interface ColumnProps {
 }
 export default defineComponent({
     name: "ColumnList",
-    props: {
-        list: {
-            type: Array as PropType<ColumnProps[]>,
-            required: true,
-        },
-    },
-    setup(props) {
-        // 计算图片为空的
-        const columnList = computed(() => {
-            return props.list.map(e => {
-                if (!e.avatar)
+    setup() {
+        const columnList: ColumnProps[] = column.map(e => {
+            if (!e.avatar)
                     e.avatar = require('@/assets/logo.png');
                 return e;
-            })
-        })
+        });
         return {
             columnList,
         };
