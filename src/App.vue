@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <global-header :user="currentUser"></global-header>
-        <ColumnList ></ColumnList>
+        <ColumnList></ColumnList>
     </div>
 </template>
 
@@ -28,4 +28,8 @@ export default defineComponent({
 </script>
 
 <style>
+
+ a{
+    text-decoration: none!important;
+}
 </style>
