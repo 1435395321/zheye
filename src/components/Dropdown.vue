@@ -16,7 +16,7 @@
 import { defineComponent , ref } from 'vue';
 export default defineComponent({
     name:'Dropdown',
-    props: {
+    props: { 
         title: {
             type: String,
             required: true
