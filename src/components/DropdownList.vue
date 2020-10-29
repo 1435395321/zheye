@@ -10,7 +10,7 @@ export default defineComponent({
     props: {
         disabled: {
             type: Boolean,
-            default: false
+            default: true
         }
     }
 }); 
